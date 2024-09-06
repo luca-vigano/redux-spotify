@@ -9,7 +9,7 @@ const mediaPlayerReducer = (state = initialState, action) => {
     case SET_SONG:
       return {
         ...state,
-        searchBarInput: action.payload,
+        mediaPlayerReducer: action.payload,
       };
     default:
       return state;

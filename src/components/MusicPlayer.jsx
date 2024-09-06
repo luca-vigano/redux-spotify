@@ -4,6 +4,7 @@ import play from "../assets/playerbuttons/play.png";
 import next from "../assets/playerbuttons/next.png";
 import repeat from "../assets/playerbuttons/repeat.png";
 import { useSelector } from "react-redux";
+import { Col } from "react-bootstrap";
 
 const MusicPlayer = () => {
   const canzoni = useSelector((store) => {
@@ -15,6 +16,11 @@ const MusicPlayer = () => {
       <div className="row h-100">
         <div className="col-lg-10 offset-lg-2">
           <div className="row h-100 flex-column justify-content-center align-items-center">
+            <Col xs={3} md={4}>
+              {canzoni && (
+                <img style={{ height: "4em" }} src={canzoni.album.cover} />
+              )}
+            </Col>
             <div className="col-6 col-md-4 playerControls">
               <div className="d-flex">
                 <a href="#">
