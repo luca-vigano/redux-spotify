@@ -12,10 +12,12 @@ import logo from "../assets/logo/logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch } from "react-redux";
 import { getResultsAction } from "../redux/action";
+import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -24,6 +26,7 @@ const SearchBar = () => {
   const handlesubmit = (e) => {
     e.preventDefault();
     dispatch(getResultsAction(query));
+    navigate("/result");
   };
 
   return (
