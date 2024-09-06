@@ -11,6 +11,7 @@ import {
 import logo from "../assets/logo/logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch } from "react-redux";
+import { getResultsAction } from "../redux/action";
 
 const SearchBar = () => {
   const [query, setQuery] = useState("");
@@ -22,10 +23,7 @@ const SearchBar = () => {
 
   const handlesubmit = (e) => {
     e.preventDefault();
-    dispatch({
-      type: "SAVE_SEARCH",
-      payload: query,
-    });
+    dispatch(getResultsAction(query));
   };
 
   return (

@@ -5,18 +5,23 @@ import SearchBar from "./components/SearchBar";
 import { Container, Row } from "react-bootstrap";
 import MainContent from "./components/MainContent";
 import MusicPlayer from "./components/MusicPlayer";
+import SearchConten from "./components/searchContent";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
+    <BrowserRouter>
       <Container fluid>
         <Row>
           <SearchBar />
-          <MainContent />
+          <Routes>
+            <Route path="/" element={<MainContent />} />
+            <Route path="/result" element={<SearchConten />} />
+          </Routes>
         </Row>
       </Container>
       <MusicPlayer />
-    </>
+    </BrowserRouter>
   );
 }
 
