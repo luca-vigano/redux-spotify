@@ -21,6 +21,7 @@ const MusicPlayer = () => {
                 <img style={{ height: "4em" }} src={canzoni.album.cover} />
               )}
             </Col>
+
             <div className="col-6 col-md-4 playerControls">
               <div className="d-flex">
                 <a href="#">
@@ -43,6 +44,14 @@ const MusicPlayer = () => {
                 <div role="progressbar"></div>
               </div>
             </div>
+            <Col xs={3} md={4}>
+              {canzoni && (
+                <>
+                  <p>{canzoni.title}</p>
+                  <p>{canzoni.artist.name}</p>
+                </>
+              )}
+            </Col>
           </div>
         </div>
       </div>
