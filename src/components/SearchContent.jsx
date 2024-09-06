@@ -1,8 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useState } from "react-redux";
 import TrackList from "./trackList";
-import { useSelector } from "react-redux";
-
 const SearchContent = () => {
   const ArrayOfSong = useSelector((store) => {
     return store.searchBarInput.searchBarInput;
@@ -23,13 +22,19 @@ const SearchContent = () => {
       <div className="row">
         <div className="col-10">
           <div id="rock">
-            <h2></h2>
-            <div
-              className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3"
-              id="rockSection"
-            >
-              <TrackList />
-            </div>
+            {ArrayOfSong ? (
+              <>
+                <h2>{ArrayOfSong[0].artist.name}</h2>
+                <div
+                  className="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3"
+                  id="rockSection"
+                >
+                  <TrackList />
+                </div>
+              </>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
