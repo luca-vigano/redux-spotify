@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   Nav,
@@ -10,8 +10,24 @@ import {
 } from "react-bootstrap";
 import logo from "../assets/logo/logo.png";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { useDispatch } from "react-redux";
 
 const SearchBar = () => {
+  const [query, setQuery] = useState("");
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    setQuery(e.target.value);
+  };
+
+  const handlesubmit = (e) => {
+    e.preventDefault();
+    dispatch({
+      type: "SAVE_SEARCH",
+      payload: query,
+    });
+  };
+
   return (
     <Col className="col-2">
       <Navbar
@@ -31,18 +47,18 @@ const SearchBar = () => {
             <Nav.Link href="#" className="d-flex align-items-center">
               <i className="bi bi-book-fill"></i>&nbsp; Your Library
             </Nav.Link>
-            <Form className="mt-3">
+            <Form className="mt-3" onSubmit={handlesubmit}>
               <InputGroup>
                 <FormControl
-                  type="text"
+                  type="search"
                   placeholder="Search"
                   aria-label="Search"
+                  value={query}
+                  onChange={handleChange}
                 />
-                <InputGroup.Append>
-                  <Button variant="outline-secondary" size="sm">
-                    GO
-                  </Button>
-                </InputGroup.Append>
+                <Button variant="outline-secondary" size="sm">
+                  GO
+                </Button>
               </InputGroup>
             </Form>
           </Nav>
