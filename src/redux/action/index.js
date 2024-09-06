@@ -1,4 +1,5 @@
 export const SAVE_SEARCH = "SAVE_SEARCH";
+export const SET_SONG = "SET_SONG";
 
 export const getResultsAction = (query) => {
   return (dispatch, getState) => {
@@ -19,5 +20,12 @@ export const getResultsAction = (query) => {
       .catch((err) => {
         console.log(err);
       });
+  };
+};
+
+export const selectedSong = (song) => {
+  return {
+    type: SET_SONG,
+    payload: song,
   };
 };

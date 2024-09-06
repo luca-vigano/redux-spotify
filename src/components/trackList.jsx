@@ -17,7 +17,12 @@ function TrackList() {
             return (
               <>
                 <Col>
-                  <Image src={arr.album.cover}></Image>
+                  <Image
+                    src={arr.album.cover}
+                    onClick={() => {
+                      dispatch();
+                    }}
+                  ></Image>
                 </Col>
                 <Col>
                   <Row>
