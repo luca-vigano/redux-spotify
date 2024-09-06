@@ -2,6 +2,7 @@ import { Col, Button, Row } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import Image from "react-bootstrap/Image";
 import { useDispatch } from "react-redux";
+import { selectedSong } from "../redux/action";
 
 function TrackList() {
   const ArrayOfSong = useSelector((store) => {
@@ -20,7 +21,7 @@ function TrackList() {
                   <Image
                     src={arr.album.cover}
                     onClick={() => {
-                      dispatch();
+                      dispatch(selectedSong(arr));
                     }}
                   ></Image>
                 </Col>

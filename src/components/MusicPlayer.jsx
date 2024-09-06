@@ -3,8 +3,13 @@ import prev from "../assets/playerbuttons/prev.png";
 import play from "../assets/playerbuttons/play.png";
 import next from "../assets/playerbuttons/next.png";
 import repeat from "../assets/playerbuttons/repeat.png";
+import { useSelector } from "react-redux";
 
 const MusicPlayer = () => {
+  const canzoni = useSelector((store) => {
+    return store.mediaPlayerReducer.mediaPlayerReducer;
+  });
+
   return (
     <div className="container-fluid fixed-bottom bg-container pt-1">
       <div className="row h-100">

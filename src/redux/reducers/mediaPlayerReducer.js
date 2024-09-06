@@ -1,7 +1,7 @@
 import { SET_SONG } from "../action";
 
 const initialState = {
-  searchBarInput: "",
+  mediaPlayerReducer: "",
 };
 
 const mediaPlayerReducer = (state = initialState, action) => {

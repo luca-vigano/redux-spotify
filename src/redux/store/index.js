@@ -1,8 +1,9 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import searchReducer from "../reducers/searchReducer";
+import mediaPlayerReducer from "../reducers/mediaPlayerReducer";
 
 const BigReducer = combineReducers({
-  //   favorite: favoriteReducer,
+  mediaPlayerReducer: mediaPlayerReducer,
   searchBarInput: searchReducer,
 });
 
